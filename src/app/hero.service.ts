@@ -9,6 +9,8 @@ import { MessageService } from './message.service';
 })
 export class HeroService {
   getHeroes(): Observable<Hero[]> {
+    // TODO: send the msg AFTER fetching the heroes
+    this.messageService.add('HeroService: fetched heroes');
     return of(HEROES);
   }
   constructor(private messageService: MessageService) {}
