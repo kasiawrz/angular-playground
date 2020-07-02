@@ -8,6 +8,11 @@ import { MessageService } from './message.service';
   providedIn: 'root',
 })
 export class HeroService {
+  getHero(id: number): Observable<Hero> {
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find((hero) => hero.id === id));
+  }
+
   getHeroes(): Observable<Hero[]> {
     // TODO: send the msg AFTER fetching the heroes
     this.messageService.add('HeroService: fetched heroes');
